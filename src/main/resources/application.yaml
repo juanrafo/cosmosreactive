@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: cosmosreactive
+  cloud:
+    azure:
+      cosmos:
+        enabled: ${AZURE_COSMOS_ENABLED:false}
+        endpoint: ${AZURE_COSMOS_URI:https://accdevapp.documents.azure.com:443/}
+        key: ${AZURE_COSMOS_KEY}
+        database: ${AZURE_COSMOS_DATABASE:users_db}
+
+server:
+  port: 8082
+
+azure:
+  cosmos:
+    uri: ${AZURE_COSMOS_URI:https://accdevapp.documents.azure.com:443/}
+    key: ${AZURE_COSMOS_KEY}
+    database: ${AZURE_COSMOS_DATABASE:users_db}
+    populate-query-metrics: true
+    connection-mode: gateway
+    endpoint-discovery-enabled: false
+
+logging:
+  level:
+    com.azure.spring.data.cosmos: DEBUG
+    com.azure.cosmos: WARN

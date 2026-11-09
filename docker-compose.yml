@@ -1,0 +1,13 @@
+services:
+  cosmosapp:
+    container_name: cosmosapp
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    environment:
+      AZURE_COSMOS_URI: ${AZURE_COSMOS_URI}
+      AZURE_COSMOS_KEY: ${AZURE_COSMOS_KEY}
+      AZURE_COSMOS_DATABASE: ${AZURE_COSMOS_DATABASE:-users_db}
+    restart: unless-stopped
